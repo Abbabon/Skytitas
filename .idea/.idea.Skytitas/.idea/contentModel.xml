@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$PROJECT_DIR$/../Library/Caches/Rider2019.2/extResources" t="IncludeRecursive" />
+    <e p="$PROJECT_DIR$/../Library/Caches/Rider2019.2/resharper-host/local/Transient/ReSharperHost/v192/SolutionCaches/_Skytitas.1260580955.00" t="ExcludeRecursive" />
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="DesperateDevs" t="Include">
+          <e p="Compile.cs" t="Include" />
+        </e>
+        <e p="Entitas" t="Include">
+          <e p="Entitas.xml" t="Include" />
+          <e p="LICENSE.txt" t="Include" />
+        </e>
+        <e p="Generated" t="Include">
+          <e p="Contexts.cs" t="Include" />
+          <e p="Events" t="Include">
+            <e p="Components" t="Include">
+              <e p="PositionListenerComponent.cs" t="Include" />
+            </e>
+            <e p="GameEventSystems.cs" t="Include" />
+            <e p="Interfaces" t="Include">
+              <e p="IPositionListener.cs" t="Include" />
+            </e>
+            <e p="Systems" t="Include">
+              <e p="PositionEventSystem.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Feature.cs" t="Include" />
+          <e p="Game" t="Include">
+            <e p="Components" t="Include">
+              <e p="GameAssetComponent.cs" t="Include" />
+              <e p="GamePlayerComponent.cs" t="Include" />
+              <e p="GamePositionComponent.cs" t="Include" />
+              <e p="GamePositionListenerComponent.cs" t="Include" />
+              <e p="GameViewComponent.cs" t="Include" />
+            </e>
+            <e p="GameAttribute.cs" t="Include" />
+            <e p="GameComponentsLookup.cs" t="Include" />
+            <e p="GameContext.cs" t="Include" />
+            <e p="GameEntity.cs" t="Include" />
+            <e p="GameMatcher.cs" t="Include" />
+          </e>
+          <e p="Input" t="Include">
+            <e p="Components" t="Include">
+              <e p="InputInputComponent.cs" t="Include" />
+            </e>
+            <e p="InputAttribute.cs" t="Include" />
+            <e p="InputComponentsLookup.cs" t="Include" />
+            <e p="InputContext.cs" t="Include" />
+            <e p="InputEntity.cs" t="Include" />
+            <e p="InputMatcher.cs" t="Include" />
+          </e>
+          <e p="Meta" t="Include">
+            <e p="Components" t="Include">
+              <e p="MetaInputServiceComponent.cs" t="Include" />
+              <e p="MetaViewServiceComponent.cs" t="Include" />
+            </e>
+            <e p="MetaAttribute.cs" t="Include" />
+            <e p="MetaComponentsLookup.cs" t="Include" />
+            <e p="MetaContext.cs" t="Include" />
+            <e p="MetaEntity.cs" t="Include" />
+            <e p="MetaMatcher.cs" t="Include" />
+          </e>
+        </e>
+        <e p="Models" t="Include">
+          <e p="Planet" t="Include">
+            <e p="Atmosphere.shader" t="Include" />
+            <e p="Planet.shader" t="Include" />
+            <e p="PlanetLow.shader" t="Include" />
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="Bootstrap" t="Include">
+            <e p="GameController.cs" t="Include" />
+            <e p="GameServices.cs" t="Include" />
+          </e>
+          <e p="Components" t="Include">
+            <e p="GameComponents" t="Include">
+              <e p="AssetComponent.cs" t="Include" />
+              <e p="PlayerComponent.cs" t="Include" />
+              <e p="PositionComponent.cs" t="Include" />
+              <e p="ViewComponent.cs" t="Include" />
+            </e>
+            <e p="InputComponents" t="Include">
+              <e p="InputComponent.cs" t="Include" />
+            </e>
+            <e p="MetaComponents" t="Include">
+              <e p="InputServiceComponent.cs" t="Include" />
+              <e p="ViewServiceComponent.cs" t="Include" />
+            </e>
+          </e>
+          <e p="ScriptableObjects" t="Include">
+            <e p="AssetMap.cs" t="Include" />
+            <e p="AssetMapping.cs" t="Include" />
+          </e>
+          <e p="Services" t="Include">
+            <e p="Concrete" t="Include">
+              <e p="UnityInputService.cs" t="Include" />
+              <e p="UnityViewService.cs" t="Include" />
+            </e>
+            <e p="Interfaces" t="Include">
+              <e p="IInputService.cs" t="Include" />
+              <e p="IViewService.cs" t="Include" />
+            </e>
+          </e>
+          <e p="SmoothFollow.cs" t="Include" />
+          <e p="Systems" t="Include">
+            <e p="EmitInputSystem.cs" t="Include" />
+            <e p="LoadAssetSystem.cs" t="Include" />
+            <e p="PlayerMovementSystem.cs" t="Include" />
+            <e p="RegistrationSystems" t="Include">
+              <e p="RegisterInputServiceSystem.cs" t="Include" />
+              <e p="RegisterViewServiceSystem.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Types" t="Include">
+            <e p="AssetType.cs" t="Include" />
+          </e>
+          <e p="ViewControllers" t="Include">
+            <e p="IViewController.cs" t="Include" />
+            <e p="UnityGameView.cs" t="Include" />
+          </e>
+          <e p="Views" t="Include">
+            <e p="Concrete" t="Include">
+              <e p="RoadView.cs" t="Include" />
+              <e p="RotatingView.cs" t="Include" />
+            </e>
+            <e p="Interfaces" t="Include">
+              <e p="IEventListener.cs" t="Include" />
+            </e>
+            <e p="Listeners" t="Include">
+              <e p="PositionListener.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Shaders" t="Include">
+          <e p="Floor shader.shader" t="Include" />
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Skytitas.sln" t="IncludeFlat" />
+      <e p="Temp/bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
