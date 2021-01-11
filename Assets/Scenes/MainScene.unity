@@ -326,11 +326,13 @@ MonoBehaviour:
   - {fileID: 222872332}
   - {fileID: 1945580548}
   _accelerationSpeedFactor: 1.5
-  _playerSpeed: 5
+  _playerSpeed: 7.5
   _playerMinimumTransform: {fileID: 24224895}
   _playerMaximumTransform: {fileID: 379070592}
-  _asteroidSpeed: 0
+  _asteroidSpeed: -9
   _uvScrollBaseSpeed: 1.5
+  _initialTimeBetweenGenerations: 3
+  _maxTimeBetweenGenerations: 1
 --- !u!1 &784619021
 GameObject:
   m_ObjectHideFlags: 0

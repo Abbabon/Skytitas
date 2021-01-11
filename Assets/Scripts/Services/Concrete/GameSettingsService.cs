@@ -17,7 +17,9 @@ namespace Services.Concrete
         [SerializeField] private Transform _playerMaximumTransform;
         [SerializeField] private float _asteroidSpeed;
         [SerializeField] private float _uvScrollBaseSpeed;
-
+        [SerializeField] private float _initialTimeBetweenGenerations;
+        [SerializeField] private float _maxTimeBetweenGenerations;
+        
         public Vector3 InitialPlayerPosition => _initialPlayerTransform.position;
 
         public Vector3 AsteroidsTerminalPosition => _asteroidTerminalTransform.position;
@@ -44,5 +46,7 @@ namespace Services.Concrete
         public float PlayerMinimumX => _playerMinimumTransform.position.x;
         public float PlayerMaximumX => _playerMaximumTransform.position.x;
         public float AsteroidsSpeed => _asteroidSpeed;
+        public float InitialTimeBetweenGenerations => _initialTimeBetweenGenerations;
+        public float MinimumTimeBetweenGenerations => _maxTimeBetweenGenerations;
     }
 }

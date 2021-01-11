@@ -8,19 +8,22 @@
 //------------------------------------------------------------------------------
 public static class MetaComponentsLookup {
 
-    public const int GameSettings = 0;
-    public const int InputService = 1;
-    public const int ViewService = 2;
+    public const int Destroyed = 0;
+    public const int GameSettings = 1;
+    public const int InputService = 2;
+    public const int ViewService = 3;
 
-    public const int TotalComponents = 3;
+    public const int TotalComponents = 4;
 
     public static readonly string[] componentNames = {
+        "Destroyed",
         "GameSettings",
         "InputService",
         "ViewService"
     };
 
     public static readonly System.Type[] componentTypes = {
+        typeof(Components.GameComponents.DestroyedComponent),
         typeof(Components.MetaComponents.GameSettingsComponent),
         typeof(Components.MetaComponents.InputServiceComponent),
         typeof(Components.MetaComponents.ViewServiceComponent)

@@ -37,14 +37,19 @@ namespace Bootstrap
                 .Add(new RegisterGameSettingsSystem(contexts, _gameSettingsService))
 
                 //Base Systems:
+                .Add(new MultiDestroySystem(contexts))
                 .Add(new LoadAssetSystem(contexts))
                 .Add(new EmitInputSystem(contexts))
+                .Add(new UpdateTimersSystem(contexts))
 
                 //EventSystems:
                 .Add(new PositionEventSystem(contexts))
 
-                //Initialize Gameplay Systems
+                //Initialize Gameeplay Systems
                 .Add(new PlayerMovementSystem(contexts))
+                .Add(new AsteroidsMovementSystem(contexts))
+                .Add(new AsteroidGenerationSystem(contexts, _gameSettingsService))
+                .Add(new AsteroidsDestructionSystem(contexts, _gameSettingsService))
 
                 //Initialize Core Entities
                 .Add(new InitializePlayerSystem(contexts));

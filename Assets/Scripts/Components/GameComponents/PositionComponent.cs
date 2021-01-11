@@ -7,6 +7,6 @@ namespace Components.GameComponents
     [Game, Event(EventTarget.Self)]
     public class PositionComponent : IComponent
     {
-        public Vector3 Position;
+        public Vector3 Value;
     }
 }

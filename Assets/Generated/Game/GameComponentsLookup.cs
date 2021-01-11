@@ -9,18 +9,26 @@
 public static class GameComponentsLookup {
 
     public const int Asset = 0;
-    public const int Player = 1;
-    public const int Position = 2;
-    public const int View = 3;
-    public const int PlayerListener = 4;
-    public const int PositionListener = 5;
+    public const int Asteroid = 1;
+    public const int AsteroidGenerationTimer = 2;
+    public const int Destroyed = 3;
+    public const int Player = 4;
+    public const int Position = 5;
+    public const int Timer = 6;
+    public const int View = 7;
+    public const int PlayerListener = 8;
+    public const int PositionListener = 9;
 
-    public const int TotalComponents = 6;
+    public const int TotalComponents = 10;
 
     public static readonly string[] componentNames = {
         "Asset",
+        "Asteroid",
+        "AsteroidGenerationTimer",
+        "Destroyed",
         "Player",
         "Position",
+        "Timer",
         "View",
         "PlayerListener",
         "PositionListener"
@@ -28,8 +36,12 @@ public static class GameComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(Components.GameComponents.AssetComponent),
+        typeof(Components.GameComponents.AsteroidComponent),
+        typeof(Components.GameComponents.AsteroidGenerationTimerComponent),
+        typeof(Components.GameComponents.DestroyedComponent),
         typeof(Components.GameComponents.PlayerComponent),
         typeof(Components.GameComponents.PositionComponent),
+        typeof(Components.GameComponents.TimerComponent),
         typeof(Components.GameComponents.ViewComponent),
         typeof(PlayerListenerComponent),
         typeof(PositionListenerComponent)

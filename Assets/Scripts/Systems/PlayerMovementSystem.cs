@@ -6,7 +6,6 @@ namespace Systems
     public class PlayerMovementSystem : IExecuteSystem
     {
         private readonly Contexts _contexts;
-        private IGroup<GameEntity> _playerEntities;
 
         public PlayerMovementSystem(Contexts contexts)
         {
@@ -20,7 +19,7 @@ namespace Systems
             
             var movementDelta = new Vector3(xDelta, 0, 0);
             
-            var newPosition = _contexts.game.playerEntity.position.Position + movementDelta;
+            var newPosition = _contexts.game.playerEntity.position.Value + movementDelta;
             
             var clampedNewPositionX = Mathf.Clamp(newPosition.x, 
                 _contexts.meta.gameSettings.instance.PlayerMinimumX,

@@ -20,5 +20,7 @@ namespace Services.Interfaces
         
         //aseteroid settings:
         float AsteroidsSpeed { get; }
+        float InitialTimeBetweenGenerations { get; }
+        float MinimumTimeBetweenGenerations { get; }
     }
 }
