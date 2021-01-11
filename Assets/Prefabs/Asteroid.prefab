@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1713163629118879961}
   - component: {fileID: 1713163629118879962}
+  - component: {fileID: 640528160779122849}
+  - component: {fileID: 7890559531971139253}
   m_Layer: 0
   m_Name: Asteroid
   m_TagString: Untagged
@@ -46,6 +48,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rotatingTransform: {fileID: 1713163628682594668}
   _rotationSpeed: {x: 0, y: -20, z: 0}
+--- !u!114 &640528160779122849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713163629118879960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fd5381d444b4b7dbb4c7aef73342ac3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7890559531971139253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713163629118879960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1693790a7ba540c3b59b1ebb1668af7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1713163628682204140
 PrefabInstance:
   m_ObjectHideFlags: 0

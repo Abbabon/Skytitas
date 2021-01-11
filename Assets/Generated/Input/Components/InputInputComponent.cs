@@ -12,22 +12,22 @@ public partial class InputContext {
     public Components.InputComponents.InputComponent input { get { return inputEntity.input; } }
     public bool hasInput { get { return inputEntity != null; } }
 
-    public InputEntity SetInput(UnityEngine.Vector2 newHorizontalMovement, bool newButtonAPressed) {
+    public InputEntity SetInput(UnityEngine.Vector2 newPlaneMovement, bool newButtonAPressed) {
         if (hasInput) {
             throw new Entitas.EntitasException("Could not set Input!\n" + this + " already has an entity with Components.InputComponents.InputComponent!",
                 "You should check if the context already has a inputEntity before setting it or use context.ReplaceInput().");
         }
         var entity = CreateEntity();
-        entity.AddInput(newHorizontalMovement, newButtonAPressed);
+        entity.AddInput(newPlaneMovement, newButtonAPressed);
         return entity;
     }
 
-    public void ReplaceInput(UnityEngine.Vector2 newHorizontalMovement, bool newButtonAPressed) {
+    public void ReplaceInput(UnityEngine.Vector2 newPlaneMovement, bool newButtonAPressed) {
         var entity = inputEntity;
         if (entity == null) {
-            entity = SetInput(newHorizontalMovement, newButtonAPressed);
+            entity = SetInput(newPlaneMovement, newButtonAPressed);
         } else {
-            entity.ReplaceInput(newHorizontalMovement, newButtonAPressed);
+            entity.ReplaceInput(newPlaneMovement, newButtonAPressed);
         }
     }
 
@@ -49,18 +49,18 @@ public partial class InputEntity {
     public Components.InputComponents.InputComponent input { get { return (Components.InputComponents.InputComponent)GetComponent(InputComponentsLookup.Input); } }
     public bool hasInput { get { return HasComponent(InputComponentsLookup.Input); } }
 
-    public void AddInput(UnityEngine.Vector2 newHorizontalMovement, bool newButtonAPressed) {
+    public void AddInput(UnityEngine.Vector2 newPlaneMovement, bool newButtonAPressed) {
         var index = InputComponentsLookup.Input;
         var component = (Components.InputComponents.InputComponent)CreateComponent(index, typeof(Components.InputComponents.InputComponent));
-        component.HorizontalMovement = newHorizontalMovement;
+        component.PlaneMovement = newPlaneMovement;
         component.ButtonAPressed = newButtonAPressed;
         AddComponent(index, component);
     }
 
-    public void ReplaceInput(UnityEngine.Vector2 newHorizontalMovement, bool newButtonAPressed) {
+    public void ReplaceInput(UnityEngine.Vector2 newPlaneMovement, bool newButtonAPressed) {
         var index = InputComponentsLookup.Input;
         var component = (Components.InputComponents.InputComponent)CreateComponent(index, typeof(Components.InputComponents.InputComponent));
-        component.HorizontalMovement = newHorizontalMovement;
+        component.PlaneMovement = newPlaneMovement;
         component.ButtonAPressed = newButtonAPressed;
         ReplaceComponent(index, component);
     }

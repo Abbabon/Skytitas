@@ -1,28 +1,26 @@
 using Entitas;
-using Services.Interfaces;
 
 namespace Systems
 {
     public class EmitInputSystem : IInitializeSystem, IExecuteSystem
     {
         private Contexts _contexts;
-        private IInputService _inputService;
         private InputEntity _inputEntity;
 
-        public EmitInputSystem(Contexts contexts, IInputService inputService)
+        public EmitInputSystem(Contexts contexts)
         {
             _contexts = contexts;
-            _inputService = inputService;
         }
         
         public void Initialize()
         {
-            _inputEntity = _contexts.input.inputEntity;
+            _inputEntity = _contexts.input.CreateEntity();
         }
 
         public void Execute()
         {
-            _inputEntity.ReplaceInput(_inputService.HorizontalMovement, _inputService.ButtonAPressed);
+            _inputEntity.ReplaceInput(_contexts.meta.inputService.instance.HorizontalMovement,
+                _contexts.meta.inputService.instance.ButtonAPressed);
         }
     }
 }

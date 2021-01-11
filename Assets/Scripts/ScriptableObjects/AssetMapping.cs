@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace ScriptableObjects
 {
-    [CreateAssetMenu(fileName = "AssetMapping", menuName = "ScriptableObject/AssetMapping")]
+    [CreateAssetMenu(fileName = "AssetMapping", menuName = "ScriptableObjects/AssetMapping")]
     public class AssetMapping : ScriptableObject
     {
         public List<AssetMap> AssetMaps;
@@ -16,7 +16,7 @@ namespace ScriptableObjects
         {
             get
             {
-                if (_assetLookup != null)
+                if (_assetLookup == null)
                 {
                     _assetLookup = AssetMaps.ToDictionary(key => key.AssetType, value => value.Prefab);
                 }

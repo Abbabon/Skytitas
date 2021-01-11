@@ -17,13 +17,16 @@
           <e p="Contexts.cs" t="Include" />
           <e p="Events" t="Include">
             <e p="Components" t="Include">
+              <e p="PlayerListenerComponent.cs" t="Include" />
               <e p="PositionListenerComponent.cs" t="Include" />
             </e>
             <e p="GameEventSystems.cs" t="Include" />
             <e p="Interfaces" t="Include">
+              <e p="IPlayerListener.cs" t="Include" />
               <e p="IPositionListener.cs" t="Include" />
             </e>
             <e p="Systems" t="Include">
+              <e p="PlayerEventSystem.cs" t="Include" />
               <e p="PositionEventSystem.cs" t="Include" />
             </e>
           </e>
@@ -32,6 +35,7 @@
             <e p="Components" t="Include">
               <e p="GameAssetComponent.cs" t="Include" />
               <e p="GamePlayerComponent.cs" t="Include" />
+              <e p="GamePlayerListenerComponent.cs" t="Include" />
               <e p="GamePositionComponent.cs" t="Include" />
               <e p="GamePositionListenerComponent.cs" t="Include" />
               <e p="GameViewComponent.cs" t="Include" />
@@ -54,6 +58,7 @@
           </e>
           <e p="Meta" t="Include">
             <e p="Components" t="Include">
+              <e p="MetaGameSettingsComponent.cs" t="Include" />
               <e p="MetaInputServiceComponent.cs" t="Include" />
               <e p="MetaViewServiceComponent.cs" t="Include" />
             </e>
@@ -87,6 +92,7 @@
               <e p="InputComponent.cs" t="Include" />
             </e>
             <e p="MetaComponents" t="Include">
+              <e p="GameSettingsComponent.cs" t="Include" />
               <e p="InputServiceComponent.cs" t="Include" />
               <e p="ViewServiceComponent.cs" t="Include" />
             </e>
@@ -97,10 +103,12 @@
           </e>
           <e p="Services" t="Include">
             <e p="Concrete" t="Include">
+              <e p="GameSettingsService.cs" t="Include" />
               <e p="UnityInputService.cs" t="Include" />
               <e p="UnityViewService.cs" t="Include" />
             </e>
             <e p="Interfaces" t="Include">
+              <e p="IGameSettingsService.cs" t="Include" />
               <e p="IInputService.cs" t="Include" />
               <e p="IViewService.cs" t="Include" />
             </e>
@@ -108,9 +116,13 @@
           <e p="SmoothFollow.cs" t="Include" />
           <e p="Systems" t="Include">
             <e p="EmitInputSystem.cs" t="Include" />
+            <e p="InitializationSystems" t="Include">
+              <e p="InitializePlayerSystem.cs" t="Include" />
+            </e>
             <e p="LoadAssetSystem.cs" t="Include" />
             <e p="PlayerMovementSystem.cs" t="Include" />
             <e p="RegistrationSystems" t="Include">
+              <e p="RegisterGameSettingsSystem.cs" t="Include" />
               <e p="RegisterInputServiceSystem.cs" t="Include" />
               <e p="RegisterViewServiceSystem.cs" t="Include" />
             </e>

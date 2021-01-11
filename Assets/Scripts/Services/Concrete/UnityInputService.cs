@@ -7,9 +7,9 @@ namespace Services.Concrete
     {
         private const string HORIZONTAL_AXIS_NAME = "Horizontal";
         private const string VERTICAL_AXIS_NAME = "Vertical";
-        private static readonly string ACTION_1_KEYNAME = KeyCode.Space.ToString();
+        private static readonly KeyCode ACTION_1_KEYCODE = KeyCode.Space;
 
         public Vector2 HorizontalMovement => new Vector2(Input.GetAxis(HORIZONTAL_AXIS_NAME), Input.GetAxis(VERTICAL_AXIS_NAME));
-        public bool ButtonAPressed => Input.GetButtonDown(ACTION_1_KEYNAME);
+        public bool ButtonAPressed => Input.GetKeyDown(ACTION_1_KEYCODE);
     }
 }

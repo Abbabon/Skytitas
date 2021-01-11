@@ -9,12 +9,9 @@ namespace Systems
         private Contexts _contexts;
         private IViewService _viewService;
         
-        public LoadAssetSystem(IContext<GameEntity> context) : base(context)
+        public LoadAssetSystem(Contexts contexts) : base(contexts.game)
         {
-        }
-
-        public LoadAssetSystem(ICollector<GameEntity> collector) : base(collector)
-        {
+            _contexts = contexts;
         }
         
         public void Initialize()
