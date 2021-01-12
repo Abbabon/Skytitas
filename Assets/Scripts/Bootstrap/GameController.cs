@@ -1,25 +1,36 @@
 ﻿using Systems;
 using Systems.InitializationSystems;
 using Systems.RegistrationSystems;
-using ScriptableObjects;
-using Services.Concrete;
+using Services.Interfaces;
 using UnityEngine;
+using Zenject;
 
 namespace Bootstrap
 {
     public class GameController : MonoBehaviour
     {
-        [SerializeField] private AssetMapping _assetMapping;
-        [SerializeField] private GameSettingsService _gameSettingsService;
+        private IGameSettingsService _gameSettingsService;
+        private IInputService _inputService;
+        private IViewService _viewService;
         
         private Entitas.Systems _systems;
-    
+
+        [Inject]
+        private void Initialize(
+            IGameSettingsService gameSettingsService, 
+            IInputService inputService, 
+            IViewService viewService)
+        {
+            _gameSettingsService = gameSettingsService;
+            _inputService = inputService;
+            _viewService = viewService;
+        }
+        
         private void Start()
         {
             var contexts = Contexts.sharedInstance;
-            var services = new GameServices(new UnityInputService(), new UnityViewService(_assetMapping));
             
-            _systems = CreateSystems(contexts, services);
+            _systems = CreateSystems(contexts);
             _systems.Initialize();
         }
         
@@ -28,12 +39,12 @@ namespace Bootstrap
             _systems.Execute();
         }
 
-        private Entitas.Systems CreateSystems(Contexts contexts, GameServices gameServices)
+        private Entitas.Systems CreateSystems(Contexts contexts)
         {
             return new Feature("Game")
                 //Register services:
-                .Add(new RegisterInputServiceSystem(contexts, gameServices.InputService))
-                .Add(new RegisterViewServiceSystem(contexts, gameServices.ViewService))
+                .Add(new RegisterInputServiceSystem(contexts, _inputService))
+                .Add(new RegisterViewServiceSystem(contexts, _viewService))
                 .Add(new RegisterGameSettingsSystem(contexts, _gameSettingsService))
 
                 //Base Systems:
