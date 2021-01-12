@@ -22,10 +22,13 @@ namespace Systems
             {
                 if (asteroidEntity.position.Value.z <= _gameSettingsService.AsteroidsTerminalPosition.z)
                 {
-                    //TODO: mark to destroy
                     asteroidEntity.isDestroyed = true;
 
-                    //return view to pool :O
+                    if (_contexts.game.hasScore)
+                    {
+                        var newScore = _contexts.game.score.Value + 1;
+                        _contexts.game.ReplaceScore(newScore);
+                    }
                 }
             }
         }

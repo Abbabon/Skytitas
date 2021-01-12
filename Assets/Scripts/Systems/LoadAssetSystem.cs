@@ -34,7 +34,7 @@ namespace Systems
             foreach (var gameEntity in entities)
             {
                 var assetType = gameEntity.asset.Value;
-                _viewService.CreateAndLinkView(gameEntity, assetType);
+                _viewService.LinkView(gameEntity, assetType);
             }
         }
         

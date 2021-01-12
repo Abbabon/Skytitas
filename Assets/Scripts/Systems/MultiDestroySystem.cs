@@ -34,7 +34,7 @@ namespace Systems
             {
                 if (destroyableEntity.hasView)
                 {
-                    _viewService.DisposeAndUnlinkView(destroyableEntity);
+                    _viewService.UnlinkView(destroyableEntity);
                 }
             
                 destroyableEntity.Destroy();

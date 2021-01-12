@@ -9,14 +9,16 @@
 public static class MetaComponentsLookup {
 
     public const int Destroyed = 0;
-    public const int GameSettings = 1;
-    public const int InputService = 2;
-    public const int ViewService = 3;
+    public const int CollisionService = 1;
+    public const int GameSettings = 2;
+    public const int InputService = 3;
+    public const int ViewService = 4;
 
-    public const int TotalComponents = 4;
+    public const int TotalComponents = 5;
 
     public static readonly string[] componentNames = {
         "Destroyed",
+        "CollisionService",
         "GameSettings",
         "InputService",
         "ViewService"
@@ -24,6 +26,7 @@ public static class MetaComponentsLookup {
 
     public static readonly System.Type[] componentTypes = {
         typeof(Components.GameComponents.DestroyedComponent),
+        typeof(Components.MetaComponents.CollisionServiceComponent),
         typeof(Components.MetaComponents.GameSettingsComponent),
         typeof(Components.MetaComponents.InputServiceComponent),
         typeof(Components.MetaComponents.ViewServiceComponent)

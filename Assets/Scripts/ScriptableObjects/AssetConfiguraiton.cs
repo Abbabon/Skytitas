@@ -10,5 +10,6 @@ namespace ScriptableObjects
         public AssetType AssetType;
         public GameObject Prefab;
         public bool IsPoolable;
+        public bool IsIntantiatable;
     }
 }

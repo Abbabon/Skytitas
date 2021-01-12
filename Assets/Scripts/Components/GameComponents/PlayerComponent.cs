@@ -3,7 +3,7 @@ using Entitas.CodeGeneration.Attributes;
 
 namespace Components.GameComponents
 {
-    [Game, Unique, Event(EventTarget.Self)]
+    [Game, Unique]
     public class PlayerComponent : IComponent
     {
         

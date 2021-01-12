@@ -14,12 +14,13 @@ public static class GameComponentsLookup {
     public const int Destroyed = 3;
     public const int Player = 4;
     public const int Position = 5;
-    public const int Timer = 6;
-    public const int View = 7;
-    public const int PlayerListener = 8;
+    public const int Score = 6;
+    public const int Timer = 7;
+    public const int View = 8;
     public const int PositionListener = 9;
+    public const int ScoreListener = 10;
 
-    public const int TotalComponents = 10;
+    public const int TotalComponents = 11;
 
     public static readonly string[] componentNames = {
         "Asset",
@@ -28,10 +29,11 @@ public static class GameComponentsLookup {
         "Destroyed",
         "Player",
         "Position",
+        "Score",
         "Timer",
         "View",
-        "PlayerListener",
-        "PositionListener"
+        "PositionListener",
+        "ScoreListener"
     };
 
     public static readonly System.Type[] componentTypes = {
@@ -41,9 +43,10 @@ public static class GameComponentsLookup {
         typeof(Components.GameComponents.DestroyedComponent),
         typeof(Components.GameComponents.PlayerComponent),
         typeof(Components.GameComponents.PositionComponent),
+        typeof(Components.GameComponents.ScoreComponent),
         typeof(Components.GameComponents.TimerComponent),
         typeof(Components.GameComponents.ViewComponent),
-        typeof(PlayerListenerComponent),
-        typeof(PositionListenerComponent)
+        typeof(PositionListenerComponent),
+        typeof(ScoreListenerComponent)
     };
 }

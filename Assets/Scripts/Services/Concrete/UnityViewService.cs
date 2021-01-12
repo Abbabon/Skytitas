@@ -4,6 +4,7 @@ using Types;
 using UnityEngine;
 using Views.Concrete;
 using Views.Interfaces;
+using Views.UI;
 
 namespace Services.Concrete
 {
@@ -11,23 +12,31 @@ namespace Services.Concrete
     {
         private readonly AssetMapping _assetMapping;
         private readonly AsteroidView.Pool _asteroidPool;
-        
-        public UnityViewService(AssetMapping assetMapping, AsteroidView.Pool asteroidPool)
+        private readonly ShipView.Factory _shipFactory;
+        private readonly UiCanvasView _uiCanvasView;
+
+        public UnityViewService(
+            AssetMapping assetMapping, 
+            AsteroidView.Pool asteroidPool,
+            ShipView.Factory shipFactory,
+            UiCanvasView uiCanvasView)
         {
             _assetMapping = assetMapping;
             _asteroidPool = asteroidPool;
+            _shipFactory = shipFactory;
+            _uiCanvasView = uiCanvasView;
         }
         
-        public void CreateAndLinkView(GameEntity gameEntity, AssetType assetType)
+        public void LinkView(GameEntity gameEntity, AssetType assetType)
         {
             if (_assetMapping.AssetLookup.TryGetValue(assetType, out var assetConfiguraiton))
             {
-                var gameObject = SpawnObject(assetType, assetConfiguraiton);
+                var gameObject = GetObject(assetType, assetConfiguraiton);
                 LinkEntityAndView(gameEntity, gameObject);
             }
         }
         
-        private GameObject SpawnObject(AssetType assetType, AssetConfiguraiton assetConfiguraiton)
+        private GameObject GetObject(AssetType assetType, AssetConfiguraiton assetConfiguraiton)
         {
             GameObject gameObject = null;
             if (assetConfiguraiton.IsPoolable)
@@ -37,15 +46,30 @@ namespace Services.Concrete
                     case AssetType.Asteroid:
                         gameObject = _asteroidPool.Spawn().gameObject;
                         break;
+                }
+            }
+            else if (assetConfiguraiton.IsIntantiatable)
+            {
+                //TODO: what about views that need zenject? they should use factories. How can we get them in an elegant manner?
+                switch (assetType)
+                {
+                    case AssetType.Spaceship:
+                        gameObject = _shipFactory.Create().gameObject;
+                        break;
                     default:
-                        //TODO: log, handle
+                        //TODO: log
+                        gameObject = Object.Instantiate(assetConfiguraiton.Prefab);
                         break;
                 }
             }
             else
             {
-                //TODO: what about views that need zenject? they should use factories. How can we get them in an elegant manner?
-                gameObject = Object.Instantiate(assetConfiguraiton.Prefab);
+                switch (assetType)
+                {
+                    case AssetType.HudCanvas:
+                        gameObject = _uiCanvasView.gameObject;
+                        break;
+                }
             }
 
             return gameObject;
@@ -67,7 +91,7 @@ namespace Services.Concrete
             }
         }
         
-        public void DisposeAndUnlinkView(GameEntity gameEntity)
+        public void UnlinkView(GameEntity gameEntity)
         {
             var canDispose = gameEntity.hasView && gameEntity.hasAsset;
             if (canDispose)
@@ -75,7 +99,7 @@ namespace Services.Concrete
                 if (_assetMapping.AssetLookup.TryGetValue(gameEntity.asset.Value, out var assetConfiguraiton))
                 {
                     var gameObject = gameEntity.view.Value;
-                    UnlinkView(gameEntity, gameObject);
+                    UnlinkEntityAndView(gameEntity, gameObject);
                     DisposeOfView(gameEntity, assetConfiguraiton, gameObject);
                 }   
             }
@@ -106,7 +130,7 @@ namespace Services.Concrete
             }
         }
 
-        private static void UnlinkView(GameEntity gameEntity, GameObject gameObject)
+        private void UnlinkEntityAndView(GameEntity gameEntity, GameObject gameObject)
         {
             var eventListeners = gameObject.GetComponents<IEventListener>();
             foreach (var listener in eventListeners)
