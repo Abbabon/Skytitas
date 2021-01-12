@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2131770444417948711}
   - component: {fileID: 2131770444417948708}
-  - component: {fileID: 9159228961573810688}
   m_Layer: 0
   m_Name: Road
   m_TagString: Untagged
@@ -52,18 +51,7 @@ MonoBehaviour:
   - _NormalTex
   - _EmissionTex
   _uvScrollSpeed: -1.5
---- !u!114 &9159228961573810688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2131770444417948710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fd5381d444b4b7dbb4c7aef73342ac3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _gameSettingsService: {fileID: 0}
 --- !u!1 &2131770445064350417
 GameObject:
   m_ObjectHideFlags: 0

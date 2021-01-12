@@ -14,6 +14,12 @@ namespace Views.Listeners
             _entity.AddPositionListener(this);
         }
 
+        public void RemoveListeners(IEntity entity)
+        {
+            _entity = (GameEntity) entity;
+            _entity.RemovePositionListener();
+        }
+
         public void OnPosition(GameEntity entity, Vector3 position)
         {
             transform.position = position;

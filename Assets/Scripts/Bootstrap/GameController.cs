@@ -43,12 +43,13 @@ namespace Bootstrap
         {
             return new Feature("Game")
                 //Register services:
+                //TODO: how to completely move this to zenject? how to make systems query zenject directly? SHOULD we do it?
                 .Add(new RegisterInputServiceSystem(contexts, _inputService))
                 .Add(new RegisterViewServiceSystem(contexts, _viewService))
                 .Add(new RegisterGameSettingsSystem(contexts, _gameSettingsService))
 
                 //Base Systems:
-                .Add(new MultiDestroySystem(contexts))
+                .Add(new MultiDestroySystem(contexts, _viewService))
                 .Add(new LoadAssetSystem(contexts))
                 .Add(new EmitInputSystem(contexts))
                 .Add(new UpdateTimersSystem(contexts))

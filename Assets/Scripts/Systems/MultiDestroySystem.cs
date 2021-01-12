@@ -1,44 +1,44 @@
 using System.Collections.Generic;
 using Entitas;
-using UnityEngine;
-
-// IDestroyed: "I'm an Entity, I can have a DestroyedComponent"
-public interface IDestroyableEntity : IEntity, IDestroyedEntity { }
-
-// tell the compiler that our context-specific entities implement IDestroyed
-public partial class GameEntity : IDestroyableEntity { }
-public partial class InputEntity : IDestroyableEntity { }
-public partial class MetaEntity : IDestroyableEntity { }
+using Services.Interfaces;
 
 // inherit from MultiReactiveSystem using the IDestroyed interface defined above
-public class MultiDestroySystem : MultiReactiveSystem<IDestroyableEntity, Contexts>
+namespace Systems
 {
-    // base class takes in all contexts, not just one as in normal ReactiveSystems
-    public MultiDestroySystem(Contexts contexts) : base(contexts)
+    public class MultiDestroySystem : MultiReactiveSystem<GameEntity, Contexts>
     {
-    }
+        private readonly IViewService _viewService;
 
-    // return an ICollector[] with a collector from each context
-    protected override ICollector[] GetTrigger(Contexts contexts)
-    {
-        return new ICollector[] {
-            contexts.game.CreateCollector(GameMatcher.Destroyed),
-            contexts.input.CreateCollector(InputMatcher.Destroyed),
-            contexts.meta.CreateCollector(MetaMatcher.Destroyed)
-        };
-    }
-
-    protected override bool Filter(IDestroyableEntity entity)
-    {
-        return entity.isDestroyed;
-    }
-
-    protected override void Execute(List<IDestroyableEntity> entities)
-    {
-        foreach (var e in entities)
+        // base class takes in all contexts, not just one as in normal ReactiveSystems
+        public MultiDestroySystem(Contexts contexts, IViewService viewService) : base(contexts)
         {
-            Debug.Log("Destroyed Entity from " + e.contextInfo.name + " context");
-            e.Destroy();
+            _viewService = viewService;
+        }
+
+        // return an ICollector[] with a collector from each context
+        protected override ICollector[] GetTrigger(Contexts contexts)
+        {
+            return new ICollector[] {
+                contexts.game.CreateCollector(GameMatcher.Destroyed),
+            };
+        }
+
+        protected override bool Filter(GameEntity entity)
+        {
+            return entity.isDestroyed;
+        }
+
+        protected override void Execute(List<GameEntity> entities)
+        {
+            foreach (var destroyableEntity in entities)
+            {
+                if (destroyableEntity.hasView)
+                {
+                    _viewService.DisposeAndUnlinkView(destroyableEntity);
+                }
+            
+                destroyableEntity.Destroy();
+            }
         }
     }
 }

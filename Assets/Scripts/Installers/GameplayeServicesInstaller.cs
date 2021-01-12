@@ -1,6 +1,8 @@
 using ScriptableObjects;
 using Services.Concrete;
+using Types;
 using UnityEngine;
+using Views.Concrete;
 using Zenject;
 
 namespace Installers
@@ -12,16 +14,32 @@ namespace Installers
         
         public override void InstallBindings()
         {
+            BindMonobehaviourServices();
+            InitializeServices();
+            InitializePools();
+        }
+
+        private void BindMonobehaviourServices()
+        {
             Container.Bind<AssetMapping>().FromInstance(_assetMapping);
             Container.BindInterfacesTo<GameSettingsService>().FromInstance(_gameSettingsService);
-
-            InitializeServices();
         }
 
         private void InitializeServices()
         {
-            Container.BindInterfacesTo<UnityViewService>().FromInstance(new UnityViewService(_assetMapping));
-            Container.BindInterfacesTo<UnityInputService>().FromInstance(new UnityInputService());
+            Container.BindInterfacesTo<UnityViewService>().AsSingle();
+            Container.BindInterfacesTo<UnityInputService>().AsSingle();
+        }
+        
+        private void InitializePools()
+        {
+            if (_assetMapping.AssetLookup.TryGetValue(AssetType.Asteroid, out var assetConfiguraiton))
+            {
+                Container.BindMemoryPool<AsteroidView, AsteroidView.Pool>()
+                    .WithInitialSize(10)
+                    .FromComponentInNewPrefab(assetConfiguraiton.Prefab)
+                    .UnderTransformGroup("Asteroids");
+            }
         }
     }
 }

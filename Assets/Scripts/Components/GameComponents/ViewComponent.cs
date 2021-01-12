@@ -1,11 +1,11 @@
 using Entitas;
-using ViewControllers;
+using UnityEngine;
 
 namespace Components.GameComponents
 {
     [Game]
     public class ViewComponent : IComponent
     {
-        public IViewController instance;
+        public GameObject Value;
     }
 }

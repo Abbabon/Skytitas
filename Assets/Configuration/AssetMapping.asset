@@ -15,8 +15,11 @@ MonoBehaviour:
   AssetMaps:
   - AssetType: 0
     Prefab: {fileID: 952400950007950366, guid: aef8aff34fda64f21accf8b7a0a32aef, type: 3}
+    IsPoolable: 0
   - AssetType: 1
     Prefab: {fileID: 1713163629118879960, guid: 7ed7a75f458244d35b413e1c6bc547ba,
       type: 3}
+    IsPoolable: 1
   - AssetType: 2
     Prefab: {fileID: 0}
+    IsPoolable: 0

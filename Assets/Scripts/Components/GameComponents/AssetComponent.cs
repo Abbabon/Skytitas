@@ -3,8 +3,9 @@ using Types;
 
 namespace Components.GameComponents
 {
+    [Game]
     public class AssetComponent : IComponent
     {
-        public AssetType AssetType;
+        public AssetType Value;
     }
 }

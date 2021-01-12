@@ -8,17 +8,17 @@ namespace ScriptableObjects
     [CreateAssetMenu(fileName = "AssetMapping", menuName = "ScriptableObjects/AssetMapping")]
     public class AssetMapping : ScriptableObject
     {
-        public List<AssetMap> AssetMaps;
+        public List<AssetConfiguraiton> AssetMaps;
 
-        private Dictionary<AssetType, GameObject> _assetLookup;
+        private Dictionary<AssetType, AssetConfiguraiton> _assetLookup;
 
-        public Dictionary<AssetType, GameObject> AssetLookup
+        public Dictionary<AssetType, AssetConfiguraiton> AssetLookup
         {
             get
             {
                 if (_assetLookup == null)
                 {
-                    _assetLookup = AssetMaps.ToDictionary(key => key.AssetType, value => value.Prefab);
+                    _assetLookup = AssetMaps.ToDictionary(key => key.AssetType, value => value);
                 }
                 
                 return _assetLookup;
