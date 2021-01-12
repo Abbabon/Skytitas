@@ -60,7 +60,8 @@ crashlytics-build.properties
 
 .idea
 .idea/*
+.idea*
 
-Jenny
+Jenny*
 Jenny/*
 
