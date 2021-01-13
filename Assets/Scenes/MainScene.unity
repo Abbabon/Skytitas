@@ -326,6 +326,7 @@ MonoBehaviour:
   _assetMapping: {fileID: 11400000, guid: 408d120e6c3ed4cd1b0a5113e97f9b14, type: 2}
   _gameSettingsService: {fileID: 729926040}
   _uiCanvasView: {fileID: 762876091}
+  _roadView: {fileID: 1612456565}
 --- !u!1 &379070591
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +406,7 @@ MonoBehaviour:
   - {fileID: 1136692484}
   - {fileID: 222872332}
   - {fileID: 1945580548}
-  _accelerationSpeedFactor: 1.5
+  _accelerationSpeedFactor: 2
   _playerSpeed: 7.5
   _playerMinimumTransform: {fileID: 24224895}
   _playerMaximumTransform: {fileID: 379070592}
@@ -937,6 +938,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1612456565 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2131770444417948708, guid: 678068ce2fdc541b8997019477bb9e2a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2131770445523610066}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b93296177f3f4fe58fe51be27364ff5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1931746896
 GameObject:
   m_ObjectHideFlags: 0

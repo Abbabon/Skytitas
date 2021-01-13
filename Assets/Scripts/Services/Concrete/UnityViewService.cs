@@ -2,6 +2,7 @@ using ScriptableObjects;
 using Services.Interfaces;
 using Types;
 using UnityEngine;
+using Views;
 using Views.Concrete;
 using Views.Interfaces;
 using Views.UI;
@@ -13,18 +14,22 @@ namespace Services.Concrete
         private readonly AssetMapping _assetMapping;
         private readonly AsteroidView.Pool _asteroidPool;
         private readonly ShipView.Factory _shipFactory;
+        
         private readonly UiCanvasView _uiCanvasView;
+        private readonly RoadView _roadView;
 
         public UnityViewService(
             AssetMapping assetMapping, 
             AsteroidView.Pool asteroidPool,
             ShipView.Factory shipFactory,
-            UiCanvasView uiCanvasView)
+            UiCanvasView uiCanvasView,
+            RoadView roadView)
         {
             _assetMapping = assetMapping;
             _asteroidPool = asteroidPool;
             _shipFactory = shipFactory;
             _uiCanvasView = uiCanvasView;
+            _roadView = roadView;
         }
         
         public void LinkView(GameEntity gameEntity, AssetType assetType)
@@ -68,6 +73,9 @@ namespace Services.Concrete
                 {
                     case AssetType.HudCanvas:
                         gameObject = _uiCanvasView.gameObject;
+                        break;
+                    case AssetType.RoadView:
+                        gameObject = _roadView.gameObject;
                         break;
                 }
             }

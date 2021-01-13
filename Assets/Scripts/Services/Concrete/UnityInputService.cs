@@ -10,6 +10,6 @@ namespace Services.Concrete
         private static readonly KeyCode ACTION_1_KEYCODE = KeyCode.Space;
 
         public Vector2 HorizontalMovement => new Vector2(Input.GetAxis(HORIZONTAL_AXIS_NAME), Input.GetAxis(VERTICAL_AXIS_NAME));
-        public bool ButtonAPressed => Input.GetKeyDown(ACTION_1_KEYCODE);
+        public bool ButtonAPressed => Input.GetKey(ACTION_1_KEYCODE);
     }
 }

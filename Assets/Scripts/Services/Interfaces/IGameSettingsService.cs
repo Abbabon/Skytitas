@@ -22,5 +22,8 @@ namespace Services.Interfaces
         float AsteroidsSpeed { get; }
         float InitialTimeBetweenGenerations { get; }
         float MinimumTimeBetweenGenerations { get; }
+        
+        //road settings
+        float UVScrollSpeed { get; }
     }
 }

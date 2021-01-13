@@ -15,10 +15,14 @@
             
             public void Initialize()
             {
-                var entity = _contexts.game.CreateEntity();
-                entity.isPlayer = true;
-                entity.AddPosition(_contexts.meta.gameSettings.instance.InitialPlayerPosition);
-                entity.AddAsset(AssetType.Spaceship);
+                var playerEntity = _contexts.game.CreateEntity();
+                playerEntity.isPlayer = true;
+                playerEntity.AddPosition(_contexts.meta.gameSettings.instance.InitialPlayerPosition);
+                playerEntity.AddAsset(AssetType.Spaceship);
+                
+                var accelerationEntity = _contexts.game.CreateEntity();
+                accelerationEntity.AddPlayerAcceleration(false);
+                accelerationEntity.AddAsset(AssetType.RoadView);
             }
         }
     }

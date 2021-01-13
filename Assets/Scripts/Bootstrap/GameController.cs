@@ -61,6 +61,7 @@ namespace Bootstrap
                 //EventSystems:
                 .Add(new PositionEventSystem(contexts))
                 .Add(new ScoreEventSystem(contexts))
+                .Add(new PlayerAccelerationEventSystem(contexts))
 
                 //Initialize Gameeplay Systems
                 .Add(new PlayerMovementSystem(contexts))

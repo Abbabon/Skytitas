@@ -19,7 +19,12 @@ namespace Systems
             foreach (var asteroidsEntity in _asteroidsEntities)
             {
                 var zDelta =
-                    _contexts.meta.gameSettings.instance.AsteroidsSpeed * Time.deltaTime;
+                    _contexts.meta.gameSettings.instance.AsteroidsSpeed *
+                    (_contexts.game.playerAcceleration.TurnedOn
+                        ? _contexts.meta.gameSettings.instance.AccelerationSpeedFactor
+                        : 1f) *
+                    Time.deltaTime;
+                
                 var movementDelta = new Vector3(0, 0, zDelta);
                 var newPosition = asteroidsEntity.position.Value + movementDelta;
                 asteroidsEntity.ReplacePosition(newPosition);

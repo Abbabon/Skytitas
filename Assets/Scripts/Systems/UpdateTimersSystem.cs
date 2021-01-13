@@ -18,7 +18,11 @@ namespace Systems
         {
             foreach (var timerEntity in _timersGroup)
             {
-                var newTimerValue = timerEntity.timer.Value - Time.deltaTime;
+                var newTimerValue = timerEntity.timer.Value -
+                                    Time.deltaTime *
+                                    (_contexts.game.playerAcceleration.TurnedOn
+                                        ? _contexts.meta.gameSettings.instance.AccelerationSpeedFactor
+                                        : 1f);
                 timerEntity.ReplaceTimer(newTimerValue);
             }
         }

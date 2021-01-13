@@ -12,26 +12,30 @@ public static class GameComponentsLookup {
     public const int Asteroid = 1;
     public const int AsteroidGenerationTimer = 2;
     public const int Destroyed = 3;
-    public const int Player = 4;
-    public const int Position = 5;
-    public const int Score = 6;
-    public const int Timer = 7;
-    public const int View = 8;
-    public const int PositionListener = 9;
-    public const int ScoreListener = 10;
+    public const int PlayerAcceleration = 4;
+    public const int Player = 5;
+    public const int Position = 6;
+    public const int Score = 7;
+    public const int Timer = 8;
+    public const int View = 9;
+    public const int PlayerAccelerationListener = 10;
+    public const int PositionListener = 11;
+    public const int ScoreListener = 12;
 
-    public const int TotalComponents = 11;
+    public const int TotalComponents = 13;
 
     public static readonly string[] componentNames = {
         "Asset",
         "Asteroid",
         "AsteroidGenerationTimer",
         "Destroyed",
+        "PlayerAcceleration",
         "Player",
         "Position",
         "Score",
         "Timer",
         "View",
+        "PlayerAccelerationListener",
         "PositionListener",
         "ScoreListener"
     };
@@ -41,11 +45,13 @@ public static class GameComponentsLookup {
         typeof(Components.GameComponents.AsteroidComponent),
         typeof(Components.GameComponents.AsteroidGenerationTimerComponent),
         typeof(Components.GameComponents.DestroyedComponent),
+        typeof(Components.GameComponents.PlayerAccelerationComponent),
         typeof(Components.GameComponents.PlayerComponent),
         typeof(Components.GameComponents.PositionComponent),
         typeof(Components.GameComponents.ScoreComponent),
         typeof(Components.GameComponents.TimerComponent),
         typeof(Components.GameComponents.ViewComponent),
+        typeof(PlayerAccelerationListenerComponent),
         typeof(PositionListenerComponent),
         typeof(ScoreListenerComponent)
     };

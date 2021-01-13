@@ -2,6 +2,7 @@ using ScriptableObjects;
 using Services.Concrete;
 using Types;
 using UnityEngine;
+using Views;
 using Views.Concrete;
 using Views.UI;
 using Zenject;
@@ -14,6 +15,8 @@ namespace Installers
         [SerializeField] private GameSettingsService _gameSettingsService;
 
         [SerializeField] private UiCanvasView _uiCanvasView;
+        [SerializeField] private RoadView _roadView;
+        
 
         public override void InstallBindings()
         {
@@ -28,6 +31,7 @@ namespace Installers
             Container.Bind<AssetMapping>().FromInstance(_assetMapping);
             Container.BindInterfacesTo<GameSettingsService>().FromInstance(_gameSettingsService);
             Container.Bind<UiCanvasView>().FromInstance(_uiCanvasView);
+            Container.Bind<RoadView>().FromInstance(_roadView);
         }
 
         private void BindServices()

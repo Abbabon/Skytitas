@@ -30,3 +30,7 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     IsPoolable: 0
     IsIntantiatable: 0
+  - AssetType: 4
+    Prefab: {fileID: 0}
+    IsPoolable: 0
+    IsIntantiatable: 0
