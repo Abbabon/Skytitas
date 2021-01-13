@@ -1,7 +1,7 @@
 using Entitas;
 using Services.Interfaces;
 
-namespace Systems
+namespace Systems.GameplaySystems
 {
     public class PlayerCollisionSystem : IInitializeSystem
     {

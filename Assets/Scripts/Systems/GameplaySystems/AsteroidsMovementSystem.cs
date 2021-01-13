@@ -1,7 +1,7 @@
 using Entitas;
 using UnityEngine;
 
-namespace Systems
+namespace Systems.GameplaySystems
 {
     public class AsteroidsMovementSystem : IExecuteSystem
     {

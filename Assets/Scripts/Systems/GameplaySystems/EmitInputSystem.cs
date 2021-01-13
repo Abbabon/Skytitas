@@ -1,6 +1,6 @@
 using Entitas;
 
-namespace Systems
+namespace Systems.GameplaySystems
 {
     public class EmitInputSystem : IInitializeSystem, IExecuteSystem
     {

@@ -2,7 +2,7 @@ using Entitas;
 using UnityEngine;
 using Views.Interfaces;
 
-namespace Views.Listeners
+namespace Views.Concrete
 {
     public class PositionListener : MonoBehaviour, IEventListener, IPositionListener
     {

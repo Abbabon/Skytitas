@@ -3,7 +3,7 @@ using Entitas;
 using Services.Interfaces;
 
 // inherit from MultiReactiveSystem using the IDestroyed interface defined above
-namespace Systems
+namespace Systems.GameplaySystems
 {
     public class MultiDestroySystem : MultiReactiveSystem<GameEntity, Contexts>
     {

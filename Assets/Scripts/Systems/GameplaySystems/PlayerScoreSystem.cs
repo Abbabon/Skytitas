@@ -1,7 +1,7 @@
 using Entitas;
 using Types;
 
-namespace Systems
+namespace Systems.GameplaySystems
 {
     public class PlayerScoreSystem : IInitializeSystem
     {

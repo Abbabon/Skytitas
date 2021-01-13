@@ -406,7 +406,7 @@ MonoBehaviour:
   - {fileID: 1136692484}
   - {fileID: 222872332}
   - {fileID: 1945580548}
-  _accelerationSpeedFactor: 2
+  _accelerationSpeedFactor: 3
   _playerSpeed: 7.5
   _playerMinimumTransform: {fileID: 24224895}
   _playerMaximumTransform: {fileID: 379070592}

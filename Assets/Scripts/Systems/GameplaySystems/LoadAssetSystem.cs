@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using Entitas;
 using Services.Interfaces;
 
-namespace Systems
+namespace Systems.GameplaySystems
 {
     public class LoadAssetSystem : ReactiveSystem<GameEntity>, IInitializeSystem
     {
